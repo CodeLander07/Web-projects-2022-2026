@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-
+const flash = require('connect-flash');
 const app = express();
 
 const PORT = 5000;
@@ -12,6 +12,8 @@ app.listen(PORT, () => {
 app.get('/', (req, res) => {
  res.send('Hello, Express.js!');
 });
+
+app.use(flash());
 
 app.use(
     session({
